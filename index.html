@@ -31,6 +31,7 @@
             color: var(--text-primary);
             line-height: 1.6;
             padding: 0 1rem;
+            min-height: 100vh;
         }
 
         header {
@@ -54,6 +55,8 @@
         main {
             max-width: 1100px;
             margin: 0 auto 4rem;
+            height: auto;
+            overflow: visible;
         }
 
         .section-title {
@@ -68,7 +71,9 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
+            overflow: visible;
+            height: auto;
         }
 
         .project-card {
