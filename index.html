@@ -1,310 +1,618 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Business Intelligence & Data Analytics</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent: #38bdf8;
-            --accent-hover: #0ea5e9;
-            --border: #334155;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            padding: 0 1rem;
-            min-height: 100vh;
-        }
-
-        header {
-            max-width: 1100px;
-            margin: 4rem auto 2rem;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.025em;
-        }
-
-        header p {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-        }
-
-        main {
-            max-width: 1100px;
-            margin: 0 auto 4rem;
-            height: auto;
-            overflow: visible;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 0.5rem;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 4rem;
-            overflow: visible;
-            height: auto;
-        }
-
-        .project-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--accent);
-        }
-
-        .project-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .project-desc {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tag {
-            background-color: rgba(56, 189, 248, 0.1);
-            color: var(--accent);
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: 0.25rem 0.6rem;
-            border-radius: 4px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--bg-color);
-            font-weight: 600;
-            text-decoration: none;
-            text-align: center;
-            padding: 0.6rem 1rem;
-            border-radius: 6px;
-            transition: background-color 0.2s ease;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-hover);
-        }
-
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .skill-badge {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        footer {
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            padding: 2rem 0;
-            border-top: 1px solid var(--border);
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Analyst Hub | Professional Analytics Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
-<body>
+<body style="background: #0b0f19; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0;">
 
-    <header>
-        <h1>Business Intelligence & Data Analytics Portfolio</h1>
-        <p>Transforming complex datasets into actionable enterprise insights and automated workflows.</p>
+  <!-- Public Landing & Marketing View -->
+  <section id="landingSection" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between;">
+    
+    <!-- Top Navigation Bar -->
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 5%; border-bottom: 1px solid #1e293b; background: rgba(11, 15, 25, 0.85); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px);">
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <svg class="brand-logo-small" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 36px; height: 36px;">
+          <rect width="100" height="100" rx="20" fill="#0f172a" stroke="#334155" stroke-width="3"/>
+          <rect x="22" y="52" width="10" height="26" rx="3" fill="#38bdf8" />
+          <rect x="38" y="38" width="10" height="40" rx="3" fill="#818cf8" />
+          <rect x="54" y="26" width="10" height="52" rx="3" fill="#38bdf8" />
+          <path d="M22 45L43 32L59 40L78 20" stroke="#f43f5e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="78" cy="20" r="4" fill="#f43f5e"/>
+        </svg>
+        <span style="font-size: 1.25rem; font-weight: 700; background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Data Analyst Hub</span>
+      </div>
+      
+      <nav style="display: flex; gap: 2rem; align-items: center;">
+        <a href="#features" style="color: #94a3b8; text-decoration: none; font-size: 0.9rem; font-weight: 500;">Product</a>
+        <a href="#workflow" style="color: #94a3b8; text-decoration: none; font-size: 0.9rem; font-weight: 500;">Solutions</a>
+        <a href="#showcaseSection" style="color: #94a3b8; text-decoration: none; font-size: 0.9rem; font-weight: 500;">Dashboards</a>
+        <a href="https://keezytech566.github.io/portfolio-/" target="_blank" style="color: #38bdf8; text-decoration: none; font-size: 0.9rem; font-weight: 500;">Portfolio</a>
+        <a href="#pricing" style="color: #94a3b8; text-decoration: none; font-size: 0.9rem; font-weight: 500;">Pricing</a>
+        <a href="onboard.html" style="color: #38bdf8; text-decoration: none; font-size: 0.9rem; font-weight: 500;">+ Enterprise Tenant</a>
+      </nav>
+
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <button id="heroLoginHeaderBtn" style="background: none; border: none; color: #f8fafc; font-weight: 600; cursor: pointer; font-size: 0.9rem;">Log in</button>
+        <button id="heroCreateAccountHeaderBtn" style="background: #38bdf8; color: #0b0f19; border: none; padding: 0.6rem 1.25rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.9rem;">Get Started Free</button>
+      </div>
     </header>
 
-    <main>
-        <section>
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <!-- Project 1: Data Analyst Hub -->
-                <div class="project-card">
-                    <div>
-                        <h3 class="project-title">Data Analyst Hub</h3>
-                        <p class="project-desc">A centralized resource and showcase platform for advanced data analytics workflows, dashboards, and professional technical documentation.</p>
-                        <div class="tags">
-                            <span class="tag">Web Architecture</span>
-                            <span class="tag">Analytics Hub</span>
-                            <span class="tag">UI/UX</span>
-                        </div>
-                    </div>
-                    <a href="https://dataanalysthub.com.ng" target="_blank" class="btn">Visit Live Site</a>
-                </div>
+    <!-- Hero Section -->
+    <div style="padding: 5rem 5% 4rem 5%; text-align: center; max-width: 1100px; margin: 0 auto;">
+      <div style="display: inline-block; background: rgba(56, 189, 248, 0.1); color: #38bdf8; padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.5rem; border: 1px solid rgba(56, 189, 248, 0.2);">
+        THE ALL-IN-ONE WORKSPACE FOR ENTERPRISE ANALYSTS
+      </div>
+      
+      <h1 style="font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em;">
+        One workspace. Every dataset. <span style="background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Total clarity.</span>
+      </h1>
+      
+      <p style="font-size: 1.15rem; color: #94a3b8; max-width: 720px; margin: 0 auto 2.5rem auto; line-height: 1.6;">
+        Data Analyst Hub brings your raw tabular files, live database streams, role-based controls, and custom AI forecasting together into one modern workspace.
+      </p>
 
-                <!-- Project 2: Banking Profitability Reports -->
-                <div class="project-card">
-                    <div>
-                        <h3 class="project-title">Banking Profitability Analytics</h3>
-                        <p class="project-desc">Management dashboard featuring dynamic currency toggles (NGN/USD) using DAX SWITCH measures, Star Schema data modeling, and Row-Level Security (RLS).</p>
-                        <div class="tags">
-                            <span class="tag">Power BI</span>
-                            <span class="tag">DAX</span>
-                            <span class="tag">Star Schema</span>
-                            <span class="tag">RLS</span>
-                        </div>
-                    </div>
-                    <a href="https://dataanalysthub.com.ng" target="_blank" class="btn">View Case Study</a>
-                </div>
+      <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 4rem;">
+        <button id="heroCreateAccountBtn" style="background: #38bdf8; color: #0b0f19; border: none; padding: 0.85rem 1.75rem; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);">Get Started Free →</button>
+        <button id="heroLoginBtn" style="background: #1e293b; color: #f8fafc; border: 1px solid #334155; padding: 0.85rem 1.75rem; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer;">Sign In</button>
+        <button id="heroWatchDemoBtn" style="background: transparent; color: #38bdf8; border: 1px solid #38bdf8; padding: 0.85rem 1.75rem; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer;">▶ Watch Demo</button>
+        <button id="heroRequestDemoBtn" style="background: transparent; color: #818cf8; border: 1px solid #818cf8; padding: 0.85rem 1.75rem; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer;">📅 Request a Demo</button>
+      </div>
+    </div>
 
-                <!-- Project 3: Transport Management Metrics -->
-                <div class="project-card">
-                    <div>
-                        <h3 class="project-title">Transport Operations & HR Dashboard</h3>
-                        <p class="project-desc">Driver administration and headcount analytics tracking availability, retention metrics, and operational efficiency through custom wireframe layouts.</p>
-                        <div class="tags">
-                            <span class="tag">Power BI</span>
-                            <span class="tag">HR Analytics</span>
-                            <span class="tag">KPI Cards</span>
-                        </div>
-                    </div>
-                    <a href="https://dataanalysthub.com.ng" target="_blank" class="btn">View Case Study</a>
-                </div>
+    <!-- Powerful Features Grid -->
+    <div id="features" style="padding: 6rem 5%; max-width: 1100px; margin: 0 auto; text-align: center;">
+      <span style="color: #38bdf8; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">POWERFUL FEATURES</span>
+      <h2 style="font-size: 2.5rem; font-weight: 800; margin: 0.75rem 0 1rem 0;">Everything your team needs. <span style="color: #38bdf8;">Nothing you don't.</span></h2>
+      <p style="color: #94a3b8; max-width: 600px; margin: 0 auto 4rem auto; font-size: 1rem;">Designed to help data teams ingest, cleanse, profile, secure, and deliver insights — all in one place.</p>
 
-                <!-- Project 4: Real-Time Fraud Detection Pipeline -->
-                <div class="project-card">
-                    <div>
-                        <h3 class="project-title">Automated Fraud Detection Pipeline</h3>
-                        <p class="project-desc">Three-layer real-time monitoring framework integrating Power Automate HTTP webhooks, Power BI REST APIs, and PowerShell payloads.</p>
-                        <div class="tags">
-                            <span class="tag">Power Automate</span>
-                            <span class="tag">REST APIs</span>
-                            <span class="tag">PowerShell</span>
-                        </div>
-                    </div>
-                    <a href="https://dataanalysthub.com.ng" target="_blank" class="btn">View Architecture</a>
-                </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; text-align: left;">
+        <div style="background: #0f172a; border: 1px solid #1e293b; padding: 2rem; border-radius: 12px;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: #f8fafc;">Multi-Source Ingestion</h3>
+          <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.5; margin: 0;">Upload flat files or stream live data lakes directly via database connection URIs.</p>
+        </div>
+        <div style="background: #0f172a; border: 1px solid #1e293b; padding: 2rem; border-radius: 12px;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: #f8fafc;">Role-Based Access (RLS)</h3>
+          <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.5; margin: 0;">Enforce strict governance tailored for Chairmen, CFOs, and CTOs.</p>
+        </div>
+        <div style="background: #0f172a; border: 1px solid #1e293b; padding: 2rem; border-radius: 12px;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: #f8fafc;">15+ Interactive Visualizations</h3>
+          <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.5; margin: 0;">Render interactive column charts, line trajectories, and correlation heatmaps.</p>
+        </div>
+      </div>
+    </div>
 
-                <!-- Project 5: Fleet & Logistics Intelligence -->
-                <div class="project-card">
-                    <div>
-                        <h3 class="project-title">Fleet & Logistics Intelligence</h3>
-                        <p class="project-desc">Real-time asset tracking dashboard featuring telemetry stream ingestion, predictive delay trend analysis, and fuel variance monitoring.</p>
-                        <div class="tags">
-                            <span class="tag">FastAPI</span>
-                            <span class="tag">PostGIS</span>
-                            <span class="tag">Chart.js</span>
-                        </div>
-                    </div>
-                    <a href="logisticshub.html" class="btn">Launch Solution View</a>
-                </div>
+    <!-- How It Works Workflow Section -->
+    <div id="workflow" style="background: #0f172a; border-top: 1px solid #1e293b; border-bottom: 1px solid #1e293b; padding: 6rem 5%; text-align: center;">
+      <span style="color: #38bdf8; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">HOW IT WORKS</span>
+      <h2 style="font-size: 2.5rem; font-weight: 800; margin: 0.75rem 0 1rem 0;">From data to delivery. <span style="color: #38bdf8;">All in one flow.</span></h2>
+      <p style="color: #94a3b8; max-width: 600px; margin: 0 auto 4rem auto; font-size: 1rem;">Data Analyst Hub connects every part of your analytics workflow.</p>
+    </div>
 
-                <!-- Project 6: Retail Inventory & Sales Intelligence -->
-                <div class="project-card">
-                    <div>
-                        <h3 class="project-title">Retail Inventory & Sales Engine</h3>
-                        <p class="project-desc">Multi-store stock monitoring dashboard featuring demand forecasting models, inventory health ratios, and automated reorder alerts.</p>
-                        <div class="tags">
-                            <span class="tag">FastAPI</span>
-                            <span class="tag">PostgreSQL</span>
-                            <span class="tag">Chart.js</span>
-                        </div>
-                    </div>
-                    <a href="retailhub.html" class="btn">Launch Solution View</a>
-                </div>
+    <!-- Featured Enterprise Dashboards Showcase Section -->
+    <section id="showcaseSection" style="padding: 6rem 5%; max-width: 1100px; margin: 0 auto; text-align: center;">
+      <span style="color: #38bdf8; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">PROVEN ENTERPRISE WORK</span>
+      <h2 style="font-size: 2.5rem; font-weight: 800; margin: 0.75rem 0 1rem 0;">Explore production-grade <span style="color: #38bdf8;">dashboards & pipelines.</span></h2>
+      <p style="color: #94a3b8; max-width: 600px; margin: 0 auto 4rem auto; font-size: 1rem;">Click any project card to inspect architecture details, DAX measures, and live case studies.</p>
 
-                <!-- Project 7: Enterprise Intelligence & Growth Hub -->
-                <div class="project-card">
-                    <div>
-                        <h3 class="project-title">Enterprise Intelligence Engine</h3>
-                        <p class="project-desc">Next-best-action recommendations, real-time churn prediction vectors, and profitability analytics.</p>
-                        <div class="tags">
-                            <span class="tag">FastAPI</span>
-                            <span class="tag">PostgreSQL</span>
-                            <span class="tag">Analytics</span>
-                        </div>
-                    </div>
-                    <a href="enterprisehub.html" class="btn">Launch Solution View</a>
-                </div>
-
-                <!-- Project 8: T-SQL Management Studio -->
-                <div class="project-card">
-                    <div>
-                        <h3 class="project-title">T-SQL Management Studio</h3>
-                        <p class="project-desc">Interactive SQL Server console simulating T-SQL aggregations, query execution, and star schema object exploration.</p>
-                        <div class="tags">
-                            <span class="tag">SQL Server</span>
-                            <span class="tag">T-SQL</span>
-                            <span class="tag">Database Design</span>
-                        </div>
-                    </div>
-                    <a href="sqlhub.html" class="btn">Launch Solution View</a>
-                </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; text-align: left;">
+        
+        <!-- Project 2: Banking Profitability Reports -->
+        <div class="project-card" style="background: #0f172a; border: 1px solid #1e293b; padding: 2rem; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; transition: border-color 0.2s;" onclick="openProjectModal('banking')">
+          <div>
+            <div style="background: rgba(56, 189, 248, 0.1); width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1rem; border: 1px solid rgba(56, 189, 248, 0.2);">🏦</div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: #f8fafc;">Banking Profitability Analytics</h3>
+            <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.5; margin-bottom: 1.5rem;">Management dashboard featuring dynamic currency toggles (NGN/USD) using DAX SWITCH measures, Star Schema data modeling, and Row-Level Security (RLS).</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+              <span style="background: #1e293b; color: #38bdf8; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">Power BI</span>
+              <span style="background: #1e293b; color: #38bdf8; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">DAX</span>
+              <span style="background: #1e293b; color: #38bdf8; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">Star Schema</span>
+              <span style="background: #1e293b; color: #38bdf8; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">RLS</span>
             </div>
-        </section>
+          </div>
+          <span style="color: #38bdf8; text-decoration: none; font-weight: 600; font-size: 0.88rem;">View Case Study →</span>
+        </div>
 
-        <section>
-            <h2 class="section-title">Core Expertise & Tech Stack</h2>
-            <div class="skills-container">
-                <span class="skill-badge">Microsoft Power BI</span>
-                <span class="skill-badge">DAX & Power Query</span>
-                <span class="skill-badge">SQL Server / T-SQL</span>
-                <span class="skill-badge">Microsoft Power Automate</span>
-                <span class="skill-badge">Star Schema Modeling</span>
-                <span class="skill-badge">Row-Level Security (RLS)</span>
-                <span class="skill-badge">Web Architecture (WordPress/Custom)</span>
+        <!-- Project 3: Transport Management Metrics -->
+        <div class="project-card" style="background: #0f172a; border: 1px solid #1e293b; padding: 2rem; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer;" onclick="openProjectModal('transport')">
+          <div>
+            <div style="background: rgba(129, 140, 248, 0.1); width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1rem; border: 1px solid rgba(129, 140, 248, 0.2);">🚛</div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: #f8fafc;">Transport Operations & HR Dashboard</h3>
+            <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.5; margin-bottom: 1.5rem;">Driver administration and headcount analytics tracking availability, retention metrics, and operational efficiency through custom wireframe layouts.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+              <span style="background: #1e293b; color: #818cf8; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">Power BI</span>
+              <span style="background: #1e293b; color: #818cf8; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">HR Analytics</span>
+              <span style="background: #1e293b; color: #818cf8; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">KPI Cards</span>
             </div>
-        </section>
-    </main>
+          </div>
+          <span style="color: #818cf8; text-decoration: none; font-weight: 600; font-size: 0.88rem;">View Case Study →</span>
+        </div>
 
-    <footer>
-        <p>&copy; 2026 Data Analytics Portfolio. All rights reserved.</p>
+        <!-- Project 4: Real-Time Fraud Detection Pipeline -->
+        <div class="project-card" style="background: #0f172a; border: 1px solid #1e293b; padding: 2rem; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer;" onclick="openProjectModal('fraud')">
+          <div>
+            <div style="background: rgba(52, 211, 153, 0.1); width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1rem; border: 1px solid rgba(52, 211, 153, 0.2);">🛡️</div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: #f8fafc;">Automated Fraud Detection Pipeline</h3>
+            <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.5; margin-bottom: 1.5rem;">Three-layer real-time monitoring framework integrating Power Automate HTTP webhooks, Power Service REST APIs, and PowerShell payloads.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+              <span style="background: #1e293b; color: #34d399; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">Power Automate</span>
+              <span style="background: #1e293b; color: #34d399; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">REST APIs</span>
+              <span style="background: #1e293b; color: #34d399; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">PowerShell</span>
+            </div>
+          </div>
+          <span style="color: #34d399; text-decoration: none; font-weight: 600; font-size: 0.88rem;">View Architecture →</span>
+        </div>
+
+        <!-- Project 7: Enterprise Intelligence & Growth Hub -->
+        <div class="project-card" style="background: #0f172a; border: 1px solid #1e293b; padding: 2rem; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="background: rgba(56, 189, 248, 0.1); width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1rem; border: 1px solid rgba(56, 189, 248, 0.2);">⚡</div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: #f8fafc;">Enterprise Intelligence Engine</h3>
+            <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.5; margin-bottom: 1.5rem;">Next-best-action recommendations, real-time churn prediction vectors, and profitability analytics.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+              <span style="background: #1e293b; color: #38bdf8; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">FastAPI</span>
+              <span style="background: #1e293b; color: #38bdf8; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">PostgreSQL</span>
+              <span style="background: #1e293b; color: #38bdf8; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">Analytics</span>
+            </div>
+          </div>
+          <a href="enterprisehub.html" class="btn" style="background: #38bdf8; color: #0b0f19; text-align: center; text-decoration: none; padding: 0.6rem; border-radius: 6px; font-weight: 700; font-size: 0.88rem; display: inline-block;">Launch Solution View</a>
+        </div>
+
+        <!-- Project 8: T-SQL Management Studio -->
+        <div class="project-card" style="background: #0f172a; border: 1px solid #1e293b; padding: 2rem; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="background: rgba(56, 189, 248, 0.1); width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1rem; border: 1px solid rgba(56, 189, 248, 0.2);">🗄️</div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: #f8fafc;">T-SQL Management Studio</h3>
+            <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.5; margin-bottom: 1.5rem;">Interactive SQL Server console simulating T-SQL aggregations, query execution, and star schema object exploration.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+              <span style="background: #1e293b; color: #38bdf8; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">SQL Server</span>
+              <span style="background: #1e293b; color: #38bdf8; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">T-SQL</span>
+              <span style="background: #1e293b; color: #38bdf8; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">Database Design</span>
+            </div>
+          </div>
+          <a href="sqlhub.html" class="btn" style="background: #38bdf8; color: #0b0f19; text-align: center; text-decoration: none; padding: 0.6rem; border-radius: 6px; font-weight: 700; font-size: 0.88rem; display: inline-block;">Launch Solution View</a>
+        </div>
+
+        <!-- Project 9: Automated Data Pipeline Monitor -->
+        <div class="project-card" style="background: #0f172a; border: 1px solid #1e293b; padding: 2rem; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="background: rgba(56, 189, 248, 0.1); width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1rem; border: 1px solid rgba(56, 189, 248, 0.2);">⚡</div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: #f8fafc;">Pipeline Monitor & Webhook Simulator</h3>
+            <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.5; margin-bottom: 1.5rem;">Live streaming dashboard tracking Power Automate HTTP webhooks, run statuses, and execution latencies.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+              <span style="background: #1e293b; color: #38bdf8; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">Power Automate</span>
+              <span style="background: #1e293b; color: #38bdf8; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">Webhooks</span>
+              <span style="background: #1e293b; color: #38bdf8; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px;">Streaming</span>
+            </div>
+          </div>
+          <a href="pipelinemonitor.html" class="btn" style="background: #38bdf8; color: #0b0f19; text-align: center; text-decoration: none; padding: 0.6rem; border-radius: 6px; font-weight: 700; font-size: 0.88rem; display: inline-block;">Launch Monitor</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Pricing Section with Clear Tier Benefits -->
+    <div id="pricing" style="padding: 4rem 5%; max-width: 1100px; margin: 0 auto; text-align: center;">
+      <span style="color: #38bdf8; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">FLEXIBLE PRICING & TIER BENEFITS</span>
+      <h2 style="font-size: 2.5rem; font-weight: 800; margin: 0.75rem 0 1rem 0;">Start free. Grow with <span style="color: #38bdf8;">Data Analyst Hub.</span></h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; text-align: left; margin-top: 3rem;">
+        
+        <!-- Free Starter Tier -->
+        <div style="background: #0f172a; border: 1px solid #1e293b; padding: 2.5rem 2rem; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: #f8fafc;">Starter (Free)</h3>
+            <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 1.5rem;">For solo analysts getting started with basic profiling.</p>
+            <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #f8fafc;">₦0 <span style="font-size: 0.9rem; color: #94a3b8; font-weight: 400;">/month</span></div>
+            <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem; color: #94a3b8;">
+              <li>✓ <strong>Benefit:</strong> Up to 5 flat file uploads</li>
+              <li>✓ Standard statistical column profiling</li>
+              <li>✓ Basic 4-chart visualization suite</li>
+            </ul>
+          </div>
+          <button id="pricingFreeBtn" style="background: #1e293b; color: #f8fafc; border: 1px solid #334155; padding: 0.75rem; border-radius: 6px; font-weight: 600; cursor: pointer; width: 100%;">Get Started Free</button>
+        </div>
+
+        <!-- Professional Studio Tier -->
+        <div style="background: #0f172a; border: 2px solid #38bdf8; padding: 2.5rem 2rem; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; position: relative;">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #38bdf8; color: #0b0f19; font-size: 0.7rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 10px; text-transform: uppercase;">Most Popular</div>
+          <div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: #f8fafc;">Professional Studio</h3>
+            <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 1.5rem;">For data teams needing advanced modeling, layout workspace & AI.</p>
+            <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #38bdf8;">₦15,000 <span style="font-size: 0.9rem; color: #94a3b8; font-weight: 400;">/month</span></div>
+            <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem; color: #f8fafc;">
+              <li>✓ <strong>Benefit:</strong> Star & Snowflake Schema Data Modeling</li>
+              <li>✓ Custom Layout Canvas & Multi-Page Reports</li>
+              <li>✓ Row-to-Column Transposition & Token Splitting</li>
+              <li>✓ 15+ Advanced Charts & AI Predictive Advisor</li>
+            </ul>
+          </div>
+          <button id="pricingProBtn" style="background: #38bdf8; color: #0b0f19; border: none; padding: 0.75rem; border-radius: 6px; font-weight: 700; cursor: pointer; width: 100%;">Start Professional Trial</button>
+        </div>
+
+        <!-- Enterprise Tier -->
+        <div style="background: #0f172a; border: 1px solid #1e293b; padding: 2.5rem 2rem; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: #f8fafc;">Enterprise Security</h3>
+            <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 1.5rem;">For large organizations requiring strict security governance.</p>
+            <div style="font-size: 2.2rem; font-weight: 800; margin-bottom: 1.5rem; color: #f8fafc;">Let's talk</div>
+            <ul style="list-style: none; padding: 0; margin: 0 0 2rem 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem; color: #94a3b8;">
+              <li>✓ <strong>Benefit:</strong> Everything in Professional Studio</li>
+              <li>✓ Dedicated tenant database pools & live SQL streaming</li>
+              <li>✓ Comprehensive RLS role governance (CFO, Chairman, CTO)</li>
+            </ul>
+          </div>
+          <button id="pricingEnterpriseBtn" style="background: #1e293b; color: #f8fafc; border: 1px solid #334155; padding: 0.75rem; border-radius: 6px; font-weight: 600; cursor: pointer; width: 100%;">Contact Sales</button>
+        </div>
+
+      </div>
+    </div>
+
+    <footer style="background: #0b0f19; border-top: 1px solid #1e293b; padding: 2rem 5%; color: #94a3b8; font-size: 0.82rem; text-align: center;">
+      &copy; 2026 Data Analyst Hub. All rights reserved.
     </footer>
+  </section>
 
+  <!-- Login & Register Overlays -->
+  <div id="loginSection" class="auth-overlay hidden">
+    <div class="auth-card">
+      <h2>Portal Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="loginIdentifier">Email or Username</label>
+          <input type="text" id="loginIdentifier" placeholder="name@company.com" required autocomplete="username">
+        </div>
+        <div class="input-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+        <p id="loginError" class="auth-error hidden">Invalid credentials.</p>
+        <button type="submit" class="btn-primary full-width">Sign In</button>
+        <button type="button" id="backToLandingFromLoginBtn" class="btn-secondary full-width" style="margin-top: 0.75rem;">← Back to Home</button>
+
+        <div style="display: flex; align-items: center; margin: 1.25rem 0; color: #64748b;">
+          <hr style="flex: 1; border: none; border-top: 1px solid #334155;">
+          <span style="padding: 0 0.5rem; font-size: 0.75rem;">OR CONTINUE WITH</span>
+          <hr style="flex: 1; border: none; border-top: 1px solid #334155;">
+        </div>
+
+        <!-- Google Identity OAuth Button -->
+        <button type="button" class="btn-secondary full-width google-auth-btn" style="display: flex; align-items: center; justify-content: center; gap: 0.6rem; background: #ffffff; color: #1f2937; font-weight: 600; border: 1px solid #e5e7eb; padding: 0.6rem; border-radius: 6px; cursor: pointer;">
+          <svg width="18" height="18" viewBox="0 0 48 48">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+          <span>Continue with Google</span>
+        </button>
+      </form>
+      <div class="auth-switch">
+        <p>Don't have an account? <button type="button" id="switchToRegisterBtn" class="link-btn highlight">Create Account</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="registerSection" class="auth-overlay hidden">
+    <div class="auth-card">
+      <h2>Create Account</h2>
+      <form id="registerForm">
+        <div class="input-group">
+          <label for="registerEmail">Email Address</label>
+          <input type="email" id="registerEmail" placeholder="analyst@domain.com" required autocomplete="email">
+        </div>
+        <div class="input-group">
+          <label for="registerUsername">Username</label>
+          <input type="text" id="registerUsername" placeholder="analyst_jane" required autocomplete="username">
+        </div>
+        <div class="input-group">
+          <label for="registerPassword">Password</label>
+          <input type="password" id="registerPassword" placeholder="••••••••" minlength="6" required autocomplete="new-password">
+        </div>
+        <div class="input-group">
+          <label for="registerConfirmPassword">Confirm Password</label>
+          <input type="password" id="registerConfirmPassword" placeholder="••••••••" minlength="6" required autocomplete="new-password">
+        </div>
+        <p id="registerError" class="auth-error hidden"></p>
+        <p id="registerSuccess" class="auth-success hidden">Account registered successfully!</p>
+        <button type="submit" class="btn-primary full-width">Register & Enter</button>
+        <button type="button" id="backToLandingFromRegisterBtn" class="btn-secondary full-width" style="margin-top: 0.75rem;">← Back to Home</button>
+
+        <div style="display: flex; align-items: center; margin: 1.25rem 0; color: #64748b;">
+          <hr style="flex: 1; border: none; border-top: 1px solid #334155;">
+          <span style="padding: 0 0.5rem; font-size: 0.75rem;">OR CONTINUE WITH</span>
+          <hr style="flex: 1; border: none; border-top: 1px solid #334155;">
+        </div>
+
+        <!-- Google Identity OAuth Button -->
+        <button type="button" class="btn-secondary full-width google-auth-btn" style="display: flex; align-items: center; justify-content: center; gap: 0.6rem; background: #ffffff; color: #1f2937; font-weight: 600; border: 1px solid #e5e7eb; padding: 0.6rem; border-radius: 6px; cursor: pointer;">
+          <svg width="18" height="18" viewBox="0 0 48 48">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+          <span>Continue with Google</span>
+        </button>
+      </form>
+      <div class="auth-switch">
+        <p>Already have an account? <button type="button" id="switchToLoginBtn" class="link-btn highlight">Sign In</button></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Video Modal Overlay -->
+  <div id="demoModal" class="auth-overlay hidden" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center;">
+    <div class="auth-card" style="max-width: 600px; text-align: center; background: #0f172a; padding: 2rem; border-radius: 12px; border: 1px solid #1e293b;">
+      <h2>Platform Overview Demo</h2>
+      <p style="color: #94a3b8; font-size: 0.88rem; margin-bottom: 1.5rem;">See how Data Analyst Hub automates star schema modeling, transformation, and AI forecasting.</p>
+      <div style="background: #1e293b; height: 260px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; border: 1px dashed #334155;">
+        <span style="font-size: 3rem;">▶️</span>
+        <span style="margin-left: 0.75rem; color: #38bdf8; font-weight: 600;">Interactive Demo Video Stream Loading...</span>
+      </div>
+      <button type="button" id="closeDemoModalBtn" class="btn-secondary full-width" style="background: #1e293b; color: #f8fafc; border: 1px solid #334155; padding: 0.75rem; border-radius: 6px; cursor: pointer;">Close Demo</button>
+    </div>
+  </div>
+
+  <!-- Request Demo Modal Overlay -->
+  <div id="requestDemoModal" class="auth-overlay hidden" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center;">
+    <div class="auth-card" style="max-width: 480px; text-align: left; background: #0f172a; padding: 2rem; border-radius: 12px; border: 1px solid #334155;">
+      <h2>Request a Live Enterprise Demo</h2>
+      <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 1.25rem;">Our solutions engineering team will walk you through customized RLS security and database pipelines.</p>
+      <form id="requestDemoForm">
+        <div class="input-group" style="margin-bottom: 1rem;">
+          <label for="demoWorkEmail">Work Email</label>
+          <input type="email" id="demoWorkEmail" placeholder="executive@company.com" required style="width: 100%; background: #1e293b; border: 1px solid #334155; color: #fff; padding: 0.6rem; border-radius: 6px;">
+        </div>
+        <div class="input-group" style="margin-bottom: 1.25rem;">
+          <label for="demoOrgName">Organization Name</label>
+          <input type="text" id="demoOrgName" placeholder="Enterprise Corp" required style="width: 100%; background: #1e293b; border: 1px solid #334155; color: #fff; padding: 0.6rem; border-radius: 6px;">
+        </div>
+        <p id="requestDemoSuccess" class="auth-success hidden" style="margin-bottom: 1rem; color: #34d399;">Demo request submitted successfully!</p>
+        <button type="submit" class="btn-primary full-width" style="margin-bottom: 0.75rem; background: #38bdf8; color: #0b0f19; border: none; padding: 0.75rem; border-radius: 6px; font-weight: 700; cursor: pointer;">Submit Request</button>
+        <button type="button" id="closeRequestDemoModalBtn" class="btn-secondary full-width" style="background: #1e293b; color: #f8fafc; border: 1px solid #334155; padding: 0.75rem; border-radius: 6px; cursor: pointer;">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Project Interactive Detail Modal Overlay -->
+  <div id="projectModal" class="auth-overlay hidden" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.88); z-index: 1000; align-items: center; justify-content: center; overflow-y: auto; padding: 2rem 1rem;">
+    <div class="auth-card" style="max-width: 850px; width: 100%; text-align: left; background: #0f172a; padding: 2.5rem; border-radius: 12px; border: 1px solid #334155; max-height: 90vh; overflow-y: auto;">
+      
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+        <div>
+          <span id="modalProjectTag" style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.2); text-transform: uppercase;">Enterprise Case Study</span>
+          <h2 id="modalProjectTitle" style="color: #f8fafc; margin: 0.75rem 0 0.5rem 0; font-size: 1.75rem;">Project Title</h2>
+        </div>
+        <button type="button" id="closeProjectModalBtn" style="background: #1e293b; color: #94a3b8; border: 1px solid #334155; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;">✕</button>
+      </div>
+
+      <p id="modalProjectDesc" style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">Project description...</p>
+
+      <!-- Dynamic Live Dashboard Simulation View Inside Modal -->
+      <div style="background: #0b0f19; border: 1px solid #1e293b; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h4 style="margin: 0; color: #38bdf8; font-size: 1rem;">Live Simulation Canvas</h4>
+          <span id="modalRoleBadge" style="font-size: 0.75rem; background: #1e293b; color: #818cf8; padding: 0.2rem 0.6rem; border-radius: 4px;">Role: Chairman View</span>
+        </div>
+
+        <!-- Simulated KPI Cards Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <div style="background: #0f172a; padding: 1rem; border-radius: 8px; border: 1px solid #1e293b;">
+            <span style="font-size: 0.75rem; color: #94a3b8; display: block; margin-bottom: 0.2rem;" id="kpi1Label">Primary Metric</span>
+            <strong id="kpi1Val" style="font-size: 1.4rem; color: #38bdf8;">₦0.00</strong>
+          </div>
+          <div style="background: #0f172a; padding: 1rem; border-radius: 8px; border: 1px solid #1e293b;">
+            <span style="font-size: 0.75rem; color: #94a3b8; display: block; margin-bottom: 0.2rem;" id="kpi2Label">Efficiency Ratio</span>
+            <strong id="kpi2Val" style="font-size: 1.4rem; color: #34d399;">0.0%</strong>
+          </div>
+          <div style="background: #0f172a; padding: 1rem; border-radius: 8px; border: 1px solid #1e293b;">
+            <span style="font-size: 0.75rem; color: #94a3b8; display: block; margin-bottom: 0.2rem;" id="kpi3Label">Governance Security</span>
+            <strong style="font-size: 1.4rem; color: #818cf8;">Active (RLS)</strong>
+          </div>
+        </div>
+
+        <!-- Simulated Visual Canvas Preview -->
+        <div style="background: #0f172a; height: 220px; border-radius: 8px; border: 1px solid #1e293b; display: flex; align-items: center; justify-content: center; position: relative;">
+          <canvas id="modalCanvas" style="max-height: 200px; width: 100%;"></canvas>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 1rem;">
+        <a id="modalProjectLink" href="https://dataanalysthub.com.ng" target="_blank" style="flex: 1; background: #38bdf8; color: #0b0f19; text-align: center; text-decoration: none; padding: 0.85rem; border-radius: 6px; font-weight: 700;">Open Full Studio Workspace →</a>
+        <button type="button" id="closeProjectModalFooterBtn" style="flex: 1; background: #1e293b; color: #f8fafc; border: 1px solid #334155; padding: 0.85rem; border-radius: 6px; font-weight: 600; cursor: pointer;">Close Preview</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MAIN PROFESSIONAL STUDIO DASHBOARD (Initially Hidden) -->
+  <div id="mainDashboard" class="container hidden" style="display: none; flex-direction: column; min-height: 100vh; background: #0b0f19;">
+    
+    <!-- Top Studio Header -->
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 3%; border-bottom: 1px solid #1e293b; background: #0f172a;">
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <span style="font-size: 1.15rem; font-weight: 700; color: #f8fafc;">Data Analyst Hub Studio</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 1.5rem; font-size: 0.85rem;">
+        <div>
+          <label for="userRoleSelect" style="color: #94a3b8; font-size: 0.75rem; margin-right: 0.3rem;">RLS Role:</label>
+          <select id="userRoleSelect" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; border-radius: 4px; padding: 0.3rem 0.5rem; font-size: 0.8rem; font-weight: 600;">
+            <option value="Chairman">Chairman (Full Visibility)</option>
+            <option value="CFO">Chief Financial Officer (CFO)</option>
+            <option value="CTO">Chief Technology Officer (CTO)</option>
+          </select>
+        </div>
+        <span style="color: #94a3b8;">User: <strong id="loggedInUserDisplay" style="color: #38bdf8;"></strong></span>
+        <button id="logoutBtn" style="background: #1e293b; color: #f8fafc; border: 1px solid #334155; padding: 0.3rem 0.75rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Log Out</button>
+      </div>
+    </header>
+
+    <!-- Professional Studio Navigation Bar -->
+    <div style="display: flex; gap: 1rem; padding: 0.75rem 3%; background: #0f172a; border-bottom: 1px solid #1e293b;">
+      <button id="navTabIngest" style="background: #38bdf8; color: #0b0f19; border: none; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.85rem;">1. Ingest & Schema</button>
+      <button id="navTabTransform" style="background: #1e293b; color: #f8fafc; border: 1px solid #334155; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.85rem;">2. Transformation Studio</button>
+      <button id="navTabDashboard" style="background: #1e293b; color: #f8fafc; border: 1px solid #334155; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.85rem;">3. Custom Dashboard Builder</button>
+      <button id="navTabAI" style="background: #1e293b; color: #f8fafc; border: 1px solid #334155; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.85rem;">4. AI Business Advisor</button>
+    </div>
+
+    <!-- Studio Content Area -->
+    <div style="flex: 1; padding: 2rem 3%; max-width: 1300px; margin: 0 auto; width: 100%; box-sizing: border-box;">
+
+      <!-- Panel 1: Multi-Table Enterprise Ingestion & Schema Modeling -->
+      <section id="uploadSection" style="background: #0f172a; border: 1px solid #1e293b; padding: 2.5rem; border-radius: 12px; text-align: center; max-width: 900px; margin: 0 auto;">
+        <h2 style="margin-bottom: 0.5rem; font-size: 1.5rem;">Multi-Table Ingestion & Schema Modeling</h2>
+        <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 2rem;">Select and upload multiple tables (Fact & Dimensions) simultaneously for relational modeling.</p>
+        
+        <div style="display: flex; flex-direction: column; gap: 1.25rem; align-items: center;">
+          <input type="file" id="csvFileInput" multiple accept=".csv,.xlsx,.xls,.parquet,.json,.tsv,.txt" style="color: #94a3b8;">
+          
+          <div style="display: flex; gap: 1rem; width: 100%; justify-content: center;">
+            <div style="text-align: left; width: 45%;">
+              <label style="font-size: 0.8rem; color: #94a3b8; display: block; margin-bottom: 0.3rem;">Data Modeling Architecture</label>
+              <select id="schemaArchitectureSelect" style="width: 100%; background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 0.6rem; border-radius: 6px;">
+                <option value="star">Star Schema (Fact + Dimension Tables)</option>
+                <option value="snowflake">Snowflake Schema (Normalized Hierarchies)</option>
+                <option value="flat">Combined Flat Table Grain</option>
+              </select>
+            </div>
+            <div style="text-align: left; width: 45%;">
+              <label style="font-size: 0.8rem; color: #94a3b8; display: block; margin-bottom: 0.3rem;">Cardinality Enforcement</label>
+              <select id="cardinalitySelect" style="width: 100%; background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 0.6rem; border-radius: 6px;">
+                <option value="1_to_many">One-to-Many (1:*)</option>
+                <option value="many_to_many">Many-to-Many (*:*)</option>
+                <option value="1_to_1">One-to-One (1:1)</option>
+              </select>
+            </div>
+          </div>
+
+          <button id="uploadBtn" style="background: #38bdf8; color: #0b0f19; border: none; padding: 0.75rem 2rem; border-radius: 6px; font-weight: 700; cursor: pointer; margin-top: 1rem;">Process All Tables & Model</button>
+        </div>
+        <span id="loading" class="hidden" style="margin-top: 1rem; display: block; color: #38bdf8; font-weight: 500;">Ingesting multiple streams and building relational schema... please wait.</span>
+      </section>
+
+      <!-- Panel 2: Transformation Studio -->
+      <section id="transformSection" class="hidden" style="background: #0f172a; border: 1px solid #1e293b; padding: 2rem; border-radius: 12px; max-width: 900px; margin: 0 auto;">
+        <h3 style="color: #f8fafc; margin-bottom: 0.5rem; font-size: 1.25rem;">Advanced Data Transformation Studio</h3>
+        <p style="font-size: 0.88rem; color: #94a3b8; margin-bottom: 1.5rem;">Perform row transposition, string splitting, and matrix restructuring.</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div style="background: #1e293b; padding: 1rem; border-radius: 8px; border: 1px solid #334155;">
+            <h4 style="font-size: 0.9rem; color: #38bdf8; margin-bottom: 0.5rem;">Row-to-Column Transposition</h4>
+            <button type="button" id="btnTranspose" style="background: #38bdf8; color: #0b0f19; border: none; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; cursor: pointer; width: 100%;">🔄 Pivot / Transpose Matrix</button>
+          </div>
+          <div style="background: #1e293b; padding: 1rem; border-radius: 8px; border: 1px solid #334155;">
+            <h4 style="font-size: 0.9rem; color: #818cf8; margin-bottom: 0.5rem;">Split / Merge Columns</h4>
+            <div style="display: flex; gap: 0.5rem;">
+              <input type="text" id="splitDelimiter" placeholder="Delimiter (e.g., ,)" style="flex: 1; background: #0f172a; border: 1px solid #334155; color: #fff; padding: 0.4rem; border-radius: 4px; font-size: 0.8rem;">
+              <button type="button" id="btnSplitText" style="background: #334155; color: #fff; border: none; padding: 0.4rem 0.8rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Split</button>
+            </div>
+          </div>
+        </div>
+        <p id="transformMsg" class="hidden" style="font-size: 0.85rem; color: #34d399; margin-top: 0.5rem;"></p>
+      </section>
+
+      <!-- Panel 3: Custom Dashboard Builder & Expanded Chart Library -->
+      <section id="metricsSection" class="hidden" style="width: 100%;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; margin-bottom: 2rem;">
+          <div>
+            <h2 style="font-size: 1.5rem; margin: 0 0 0.25rem 0;">Custom Dashboard Builder: <span id="fileNameDisplay" style="color: #38bdf8;"></span></h2>
+            <p style="font-size: 0.85rem; color: #94a3b8; margin: 0;">Arrange visual tiles, align components, and customize your layout grid.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <button id="printDashboardBtn" style="background: #1e293b; color: #f8fafc; border: 1px solid #334155; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">🖨️ Print Dashboard</button>
+            <button id="resetUploadBtn" style="background: #1e293b; color: #f8fafc; border: 1px solid #334155; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">New Dataset</button>
+          </div>
+        </div>
+
+        <!-- DAX Formula Bar -->
+        <div style="background: #0f172a; border: 1px solid #1e293b; padding: 1.25rem; border-radius: 8px; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <span style="font-weight: 700; font-size: 0.9rem; color: #38bdf8;">DAX Calculation Engine</span>
+            <span style="font-size: 0.75rem; color: #64748b;">Syntax: MeasureName = SUM([Column])</span>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <input type="text" id="daxInput" placeholder="Total Revenue = SUM([Revenue])" style="flex: 1; background: #1e293b; border: 1px solid #334155; color: #38bdf8; font-family: monospace; padding: 0.6rem; border-radius: 6px;">
+            <button type="button" id="evaluateDaxBtn" style="background: #38bdf8; color: #0b0f19; border: none; padding: 0.6rem 1.25rem; border-radius: 6px; font-weight: 700; cursor: pointer;">Run Measure</button>
+          </div>
+          <p id="daxOutputMsg" class="hidden" style="font-size: 0.8rem; margin-top: 0.5rem; margin-bottom: 0;"></p>
+        </div>
+
+        <!-- KPI Grid -->
+        <div id="dynamicCardGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+          <div style="background: #0f172a; border: 1px solid #1e293b; padding: 1.25rem; border-radius: 8px;">
+            <h3 style="font-size: 0.8rem; color: #94a3b8; margin: 0 0 0.25rem 0;">Total Rows</h3>
+            <p id="rowCount" style="font-size: 1.5rem; font-weight: 700; color: #38bdf8; margin: 0;">-</p>
+          </div>
+          <div style="background: #0f172a; border: 1px solid #1e293b; padding: 1.25rem; border-radius: 8px;">
+            <h3 style="font-size: 0.8rem; color: #94a3b8; margin: 0 0 0.25rem 0;">Total Columns</h3>
+            <p id="colCount" style="font-size: 1.5rem; font-weight: 700; color: #818cf8; margin: 0;">-</p>
+          </div>
+        </div>
+
+        <!-- Expanded 6+ Chart Library Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+          <div style="background: #0f172a; border: 1px solid #1e293b; padding: 1.25rem; border-radius: 8px; height: 300px;">
+            <h3 style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1rem;">Column Averages (Bar)</h3>
+            <canvas id="columnChart"></canvas>
+          </div>
+          <div style="background: #0f172a; border: 1px solid #1e293b; padding: 1.25rem; border-radius: 8px; height: 300px;">
+            <h3 style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1rem;">Metric Magnitude (Horizontal Bar)</h3>
+            <canvas id="barChart"></canvas>
+          </div>
+          <div style="background: #0f172a; border: 1px solid #1e293b; padding: 1.25rem; border-radius: 8px; height: 300px;">
+            <h3 style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1rem;">Metric Trajectory (Line)</h3>
+            <canvas id="lineChart"></canvas>
+          </div>
+          <div style="background: #0f172a; border: 1px solid #1e293b; padding: 1.25rem; border-radius: 8px; height: 300px;">
+            <h3 style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1rem;">Distribution Share (Doughnut)</h3>
+            <canvas id="doughnutChart"></canvas>
+          </div>
+          <div style="background: #0f172a; border: 1px solid #1e293b; padding: 1.25rem; border-radius: 8px; height: 300px;">
+            <h3 style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1rem;">Correlation Matrix (Scatter)</h3>
+            <canvas id="scatterChart"></canvas>
+          </div>
+          <div style="background: #0f172a; border: 1px solid #1e293b; padding: 1.25rem; border-radius: 8px; height: 300px;">
+            <h3 style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1rem;">Multi-Axis Profile (Radar)</h3>
+            <canvas id="radarChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Data Preview Table -->
+        <div style="background: #0f172a; border: 1px solid #1e293b; padding: 1.5rem; border-radius: 8px; overflow-x: auto; margin-bottom: 4rem;">
+          <h3 style="font-size: 1rem; margin-bottom: 1rem; color: #f8fafc;">Data Preview (First 5 Rows)</h3>
+          <table id="dataTable" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem;">
+            <thead id="tableHead" style="background: #1e293b; color: #38bdf8;"></thead>
+            <tbody id="tableBody" style="color: #94a3b8;"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Panel 4: AI Business Advisor & Predictive Chatbot -->
+      <section id="aiAdvisorSection" class="hidden" style="background: #0f172a; border: 1px solid #334155; padding: 2rem; border-radius: 12px; max-width: 900px; margin: 0 auto;">
+        <h3 style="color: #f8fafc; margin-bottom: 0.5rem; font-size: 1.25rem;">🤖 AI Business Advisor & Predictive Forecasting</h3>
+        <p style="font-size: 0.88rem; color: #94a3b8; margin-bottom: 1.5rem;">Ask questions to predict trends, cash-flow variances, and next-best actions for your enterprise.</p>
+        
+        <div id="aiChatBox" style="background: #1e293b; border: 1px solid #334155; height: 320px; border-radius: 8px; padding: 1rem; overflow-y: auto; margin-bottom: 1rem; display: flex; flex-direction: column; gap: 0.75rem;">
+          <div style="background: #0f172a; padding: 0.75rem; border-radius: 6px; max-width: 80%; border-left: 3px solid #38bdf8;">
+            <strong style="color: #38bdf8; font-size: 0.8rem; display: block; margin-bottom: 0.2rem;">AI Assistant</strong>
+            <span style="font-size: 0.85rem; color: #f8fafc;">Hello! I am connected to your active dataset model. Ask me to forecast next-quarter trends or recommend operational actions.</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem;">
+          <input type="text" id="aiPromptInput" placeholder="e.g., Predict next-quarter revenue trajectory or suggest optimization..." style="flex: 1; background: #1e293b; border: 1px solid #334155; color: #fff; padding: 0.75rem; border-radius: 6px; font-size: 0.9rem;">
+          <button id="sendAiPromptBtn" style="background: #38bdf8; color: #0b0f19; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 700; cursor: pointer;">Ask AI</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
