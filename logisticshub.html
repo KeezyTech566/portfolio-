@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fleet & Logistics Intelligence Engine</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="background: #0b0f19; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 2rem;">
+  
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <header style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; padding-bottom: 1rem; margin-bottom: 2rem;">
+      <div>
+        <h1 style="font-size: 1.75rem; margin: 0 0 0.25rem 0; color: #38bdf8;">Fleet & Logistics Intelligence</h1>
+        <p style="color: #94a3b8; font-size: 0.9rem; margin: 0;">Real-time asset tracking, predictive delay modeling, and route efficiency metrics.</p>
+      </div>
+      <a href="index.html" style="background: #1e293b; color: #f8fafc; text-decoration: none; padding: 0.6rem 1.25rem; border-radius: 6px; font-size: 0.85rem; border: 1px solid #334155;">← Back to Hub</a>
+    </header>
+
+    <!-- KPI Summary Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+      <div style="background: #0f172a; border: 1px solid #1e293b; padding: 1.5rem; border-radius: 8px;">
+        <span style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 0.4rem;">Active Fleet Units</span>
+        <strong style="font-size: 1.8rem; color: #38bdf8;">142</strong>
+      </div>
+      <div style="background: #0f172a; border: 1px solid #1e293b; padding: 1.5rem; border-radius: 8px;">
+        <span style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 0.4rem;">On-Time Delivery Rate</span>
+        <strong style="font-size: 1.8rem; color: #34d399;">96.8%</strong>
+      </div>
+      <div style="background: #0f172a; border: 1px solid #1e293b; padding: 1.5rem; border-radius: 8px;">
+        <span style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 0.4rem;">Avg Fuel Variance</span>
+        <strong style="font-size: 1.8rem; color: #f43f5e;">-2.4 L/100km</strong>
+      </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem;">
+      <div style="background: #0f172a; border: 1px solid #1e293b; padding: 1.5rem; border-radius: 8px; height: 350px;">
+        <h3 style="font-size: 1rem; color: #f8fafc; margin-bottom: 1rem;">Route Delay Trends (Hours)</h3>
+        <canvas id="routeDelayChart"></canvas>
+      </div>
+      <div style="background: #0f172a; border: 1px solid #1e293b; padding: 1.5rem; border-radius: 8px; height: 350px;">
+        <h3 style="font-size: 1rem; color: #f8fafc; margin-bottom: 1rem;">Fleet Status Distribution</h3>
+        <canvas id="fleetStatusChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const ctxDelay = document.getElementById('routeDelayChart').getContext('2d');
+    new Chart(ctxDelay, {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Average Delay (Mins)',
+          data: [14, 8, 22, 11, 6, 4, 9],
+          borderColor: '#38bdf8',
+          backgroundColor: 'rgba(56, 189, 248, 0.1)',
+          tension: 0.3,
+          fill: true
+        }]
+      },
+      options: { responsive: true, maintainAspectRatio: false, scales: { y: { ticks: { color: '#94a3b8' }, grid: { color: '#334155' } }, x: { ticks: { color: '#94a3b8' }, grid: { color: '#334155' } } } }
+    });
+
+    const ctxStatus = document.getElementById('fleetStatusChart').getContext('2d');
+    new Chart(ctxStatus, {
+      type: 'doughnut',
+      data: {
+        labels: ['In Transit', 'Idle / Loading', 'Maintenance'],
+        datasets: [{
+          data: [98, 34, 10],
+          backgroundColor: ['#38bdf8', '#34d399', '#f43f5e']
+        }]
+      },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#94a3b8' } } } }
+    });
+  </script>
+</body>
+</html>
